@@ -1,0 +1,23 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/orders"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "courier_partner": "mock",
+      "order_id": "ORDER-1002",
+      "payload": {
+        "recipient": {
+          "name": "Rahul Sharma",
+          "phone": "9999999999",
+          "address": "MG Road, Pune",
+          "pincode": "411001"
+        },
+        "package": {
+          "weight_kg": 1.5
+        },
+        "payment_mode": "PPD"
+      }
+    }
+order: 1000

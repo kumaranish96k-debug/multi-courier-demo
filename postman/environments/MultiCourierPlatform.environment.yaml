@@ -1,0 +1,4 @@
+name: MultiCourierPlatform
+values:
+  - key: baseUrl
+    value: ''

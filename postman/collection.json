@@ -1,0 +1,14 @@
+{
+  "info": {
+    "name": "Multi-Courier Integration Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{ "key": "baseUrl", "value": "http://localhost:3000" }, { "key": "orderId", "value": "ORDER-1001" }, { "key": "batchId", "value": "" }],
+  "item": [
+    { "name": "Create order", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/v1/orders", "body": { "mode": "raw", "raw": "{\n  \"courier_partner\": \"mock\",\n  \"order_id\": \"{{orderId}}\",\n  \"payload\": {\n    \"recipient\": {\"name\": \"Rahul Sharma\", \"mobile\": \"9999999999\", \"address\": \"MG Road\", \"city\": \"Pune\", \"state\": \"Maharashtra\", \"pincode\": \"411001\"},\n    \"package\": {\"weight_kg\": 1.5},\n    \"payment_mode\": \"PPD\"\n  }\n}" } } },
+    { "name": "Track order", "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/orders/{{orderId}}/track" } },
+    { "name": "Cancel order", "request": { "method": "POST", "url": "{{baseUrl}}/api/v1/orders/{{orderId}}/cancel" } },
+    { "name": "Create bulk batch", "request": { "method": "POST", "header": [{ "key": "Content-Type", "value": "application/json" }], "url": "{{baseUrl}}/api/v1/orders/bulk", "body": { "mode": "raw", "raw": "{\n  \"orders\": [\n    {\"courier_partner\": \"mock\", \"order_id\": \"BULK-1001\", \"payload\": {\"recipient\": {\"name\": \"A\", \"mobile\": \"9999999999\", \"address\": \"Main Road\", \"city\": \"Pune\", \"state\": \"Maharashtra\", \"pincode\": \"411001\"}, \"package\": {\"weight_kg\": 1}}},\n    {\"courier_partner\": \"mock\", \"order_id\": \"BULK-1002\", \"payload\": {\"recipient\": {\"name\": \"B\", \"mobile\": \"9999999998\", \"address\": \"Park Road\", \"city\": \"Mumbai\", \"state\": \"Maharashtra\", \"pincode\": \"400001\"}, \"package\": {\"weight_kg\": 2}}}\n  ]\n}" } } },
+    { "name": "Get batch results", "request": { "method": "GET", "url": "{{baseUrl}}/api/v1/orders/bulk/{{batchId}}" } }
+  ]
+}

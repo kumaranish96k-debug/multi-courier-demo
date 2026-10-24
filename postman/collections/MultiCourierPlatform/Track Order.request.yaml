@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/orders/ORDER-1002/track"
+method: GET
+order: 2000

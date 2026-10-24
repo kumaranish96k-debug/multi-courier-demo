@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/orders/bulk/0d5ae13b-e51b-4c1e-bef1-8a5e3bd90ca4"
+method: GET
+order: 5000

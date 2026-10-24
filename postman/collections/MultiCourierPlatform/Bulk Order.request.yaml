@@ -1,0 +1,41 @@
+$kind: http-request
+url: "{{baseUrl}}/api/v1/orders/bulk"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "orders": [
+        {
+          "courier_partner": "mock",
+          "order_id": "BULK-1001",
+          "payload": {
+            "recipient": {
+              "name": "Asha Patel",
+              "phone": "9999999999",
+              "address": "Main Road, Pune",
+              "pincode": "411001"
+            },
+            "package": {
+              "weight_kg": 1
+            }
+          }
+        },
+        {
+          "courier_partner": "mock",
+          "order_id": "BULK-1002",
+          "payload": {
+            "recipient": {
+              "name": "Dev Shah",
+              "phone": "9999999998",
+              "address": "Park Road, Mumbai",
+              "pincode": "400001"
+            },
+            "package": {
+              "weight_kg": 2
+            }
+          }
+        }
+      ]
+    }
+order: 4000
